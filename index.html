@@ -1,53 +1,1146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ray HR Consultancy</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ray HR Consultancy | Recruitment & HR Solutions</title>
+  <meta name="description" content="Ray HR Consultancy is an India-based recruitment and HR consultancy specializing in BFSI sales hiring, candidate sourcing, and HR solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0b1b33;
+      --navy-2: #12294a;
+      --blue: #2563eb;
+      --blue-light: #dbeafe;
+      --ink: #172033;
+      --muted: #5b6779;
+      --line: #e5e9f0;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy);
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), #1e3a8a);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: .74rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: .95rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1px solid transparent;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 24px rgba(37,99,235,.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(37,99,235,.3);
+    }
+
+    .btn-ghost {
+      background: white;
+      color: var(--navy);
+      border-color: var(--line);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .hero {
+      background:
+        radial-gradient(1000px 500px at 85% -10%, rgba(37,99,235,.16), transparent),
+        linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+      padding: 92px 0 78px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-light);
+      color: #1e40af;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 3.7rem);
+      line-height: 1.08;
+      color: var(--navy);
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, var(--blue), #1d4ed8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      max-width: 560px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .stat span {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 24px 60px rgba(15,23,42,.08);
+    }
+
+    .hero-card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 20px;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .focus-item span {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      border-radius: 8px;
+      background: var(--blue-light);
+      color: #1d4ed8;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: .8rem;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+      color: var(--navy);
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #c7d7fe;
+      box-shadow: 0 20px 45px rgba(15,23,42,.09);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--blue-light);
+      color: #1d4ed8;
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 1.12rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .about {
+      background: white;
+      border-block: 1px solid var(--line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .point i {
+      color: var(--blue);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .quote {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: white;
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .quote p {
+      font-size: 1.18rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .quote small {
+      color: #b8c4d8;
+    }
+
+    .process {
+      background: var(--bg);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .forms-section {
+      background: white;
+      border-block: 1px solid var(--line);
+    }
+
+    .form-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .tab-btn.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+      box-shadow: 0 10px 24px rgba(37,99,235,.18);
+    }
+
+    .form-panel {
+      display: none;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .form-panel.active {
+      display: block;
+    }
+
+    .form-panel h3 {
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-panel > p {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 22px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .contact-row strong {
+      display: block;
+      color: var(--navy);
+    }
+
+    .contact-row span {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    label {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #d7dee9;
+      border-radius: 12px;
+      background: white;
+      font: inherit;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-status {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #c8d2e1;
+      padding: 46px 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: .85rem;
+      color: #8fa0b8;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 1.6rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid var(--line);
+        padding: 18px 20px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .hero { padding: 64px 0; }
+      section { padding: 64px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .steps, .form-row { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .container { width: calc(100% - 32px); }
+    }
+  </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Navbar -->
-   <nav class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html">
-                <img src="assets/Logo.png" alt="Ray HR Consultancy Logo" class="h-20 navbar-logo">
-            </a>
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="hover:underline">Home</a></li>
-                <li><a href="about.html" class="hover:underline">About</a></li>
-                <li><a href="services.html" class="hover:underline">Services</a></li>
-                <li><a href="contact.html" class="hover:underline">Contact</a></li>
-            </ul>
-        </div>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand">
+      <div class="logo">R</div>
+      <div>
+        <div class="brand-name">Ray HR Consultancy</div>
+        <div class="brand-sub">Recruitment & HR Solutions</div>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuBtn" aria-label="Open menu">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">How We Work</a>
+      <a href="#forms">Apply / Hire</a>
+      <a href="#contact">Contact</a>
+      <a href="#forms" class="btn btn-primary">Get Started</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="bg-blue-500 text-white py-20">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold mb-4">Welcome to Ray HR Consultancy</h1>
-            <p class="text-lg mb-6">Empowering businesses with top-tier HR solutions.</p>
-            <a href="contact.html" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Get in Touch</a>
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">● Recruitment · HR Consultancy · Candidate Sourcing</span>
+        <h1>Connecting businesses with <span class="accent">the right talent</span>.</h1>
+        <p>
+          Ray HR Consultancy helps organizations hire confidently through focused recruitment,
+          candidate sourcing, and practical HR support. We specialize in sales hiring for the
+          BFSI sector.
+        </p>
+        <div class="hero-actions">
+          <a href="#forms" class="btn btn-primary">Hire talent</a>
+          <a href="#forms" class="btn btn-ghost">Register as candidate</a>
         </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
-            <p class="text-lg mb-6">Ray HR Consultancy specializes in providing innovative HR solutions to help businesses thrive.</p>
-            <a href="about.html" class="text-blue-600 hover:underline">Learn More</a>
+        <div class="hero-stats">
+          <div class="stat"><strong>BFSI</strong><span>Industry focus</span></div>
+          <div class="stat"><strong>Sales</strong><span>Specialist hiring</span></div>
+          <div class="stat"><strong>India</strong><span>Based & serving</span></div>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Ray HR Consultancy. All rights reserved.</p>
+      <aside class="hero-card">
+        <h3>Who we help</h3>
+        <p>We support employers looking for quality candidates and professionals looking for the right opportunity.</p>
+        <div class="focus-list">
+          <div class="focus-item"><span>01</span><div><strong>For employers</strong><br><small>Share your hiring requirement and receive relevant profiles</small></div></div>
+          <div class="focus-item"><span>02</span><div><strong>For candidates</strong><br><small>Register your details and preferred job interests</small></div></div>
+          <div class="focus-item"><span>03</span><div><strong>BFSI sales focus</strong><br><small>Specialist recruitment for banking, financial services & insurance</small></div></div>
         </div>
-    </footer>
+      </aside>
+    </div>
+  </section>
 
-    <script src="js/script.js"></script>
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Services designed for hiring success</h2>
+        <p>We work as an extension of your hiring team, helping you find candidates who match both the role and your business goals.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon">🎯</div>
+          <h3>Recruitment Services</h3>
+          <p>End-to-end hiring support, from understanding the requirement to presenting relevant, screened candidates.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔍</div>
+          <h3>Candidate Sourcing</h3>
+          <p>Targeted sourcing to identify professionals with the right experience, skills, and role fit.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🏦</div>
+          <h3>BFSI Sales Hiring</h3>
+          <p>Specialist recruitment for sales functions across banking, financial services, and insurance companies.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🤝</div>
+          <h3>HR Consultancy</h3>
+          <p>Practical HR guidance and recruitment advisory to support better hiring decisions and workforce planning.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📋</div>
+          <h3>Screening & Shortlisting</h3>
+          <p>Careful candidate evaluation so hiring managers receive relevant profiles instead of unnecessary volume.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Faster Hiring Support</h3>
+          <p>Structured coordination and clear communication to help reduce delays in your recruitment process.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="section-head">
+          <h2>A focused recruitment partner</h2>
+          <p>Ray HR Consultancy is an HR consultancy and recruitment firm based in India, working with established companies in the BFSI domain.</p>
+        </div>
+        <div class="about-points">
+          <div class="point"><i>✓</i><span>Specializes in recruitment services for sales functions.</span></div>
+          <div class="point"><i>✓</i><span>Works with organizations in banking, financial services, and insurance.</span></div>
+          <div class="point"><i>✓</i><span>Focuses on recruitment, HR consultancy, and candidate sourcing.</span></div>
+          <div class="point"><i>✓</i><span>Provides a straightforward, professional hiring experience.</span></div>
+        </div>
+      </div>
+
+      <div class="quote">
+        <p>“The right hire is not only about a CV. It is about finding someone who fits the role, the team, and the business objective.”</p>
+        <small>Ray HR Consultancy</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head">
+        <h2>How we work</h2>
+        <p>A simple, transparent recruitment process that keeps clients and candidates informed at every stage.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Understand</h3>
+          <p>We understand the role, candidate profile, team context, and hiring priorities.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Source</h3>
+          <p>We identify and approach suitable candidates through focused sourcing.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Screen</h3>
+          <p>We assess interest, suitability, and alignment before sharing profiles.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Support</h3>
+          <p>We coordinate with clients and candidates through interview and offer stages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="forms-section" id="forms">
+    <div class="container">
+      <div class="section-head">
+        <h2>Submit your details</h2>
+        <p>Choose whether you are an employer with a hiring requirement or a candidate looking for opportunities.</p>
+      </div>
+
+      <div class="form-tabs">
+        <button class="tab-btn active" data-tab="employer">I am an employer</button>
+        <button class="tab-btn" data-tab="candidate">I am a candidate</button>
+      </div>
+
+      <!-- EMPLOYER FORM -->
+      <div class="form-panel active" id="employer">
+        <h3>Share a hiring requirement</h3>
+        <p>Tell us about the role you need to fill. Our team will review your requirement and contact you.</p>
+
+        <form id="employerForm">
+          <div class="form-row">
+            <div>
+              <label for="employer-name">Your name *</label>
+              <input id="employer-name" name="name" type="text" placeholder="Full name" required>
+            </div>
+            <div>
+              <label for="employer-company">Company name *</label>
+              <input id="employer-company" name="company" type="text" placeholder="Company name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="employer-email">Work email *</label>
+              <input id="employer-email" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+            <div>
+              <label for="employer-phone">Phone number</label>
+              <input id="employer-phone" name="phone" type="tel" placeholder="Phone number">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="employer-designation">Your designation</label>
+              <input id="employer-designation" name="designation" type="text" placeholder="e.g. HR Manager">
+            </div>
+            <div>
+              <label for="employer-industry">Industry</label>
+              <select id="employer-industry" name="industry">
+                <option>Banking / Financial Services / Insurance</option>
+                <option>IT / Software</option>
+                <option>Manufacturing</option>
+                <option>Healthcare</option>
+                <option>Retail / FMCG</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="employer-role">Position to hire *</label>
+              <input id="employer-role" name="role" type="text" placeholder="e.g. Sales Executive" required>
+            </div>
+            <div>
+              <label for="employer-location">Job location</label>
+              <input id="employer-location" name="location" type="text" placeholder="e.g. Kolkata / Remote">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="employer-experience">Experience required</label>
+              <input id="employer-experience" name="experience" type="text" placeholder="e.g. 2–5 years">
+            </div>
+            <div>
+              <label for="employer-count">Number of openings</label>
+              <input id="employer-count" name="openings" type="number" min="1" placeholder="e.g. 5">
+            </div>
+          </div>
+
+          <div>
+            <label for="employer-message">Job description / additional details</label>
+            <textarea id="employer-message" name="message" placeholder="Share key responsibilities, required skills, salary range, joining timeline, or any other details."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit hiring requirement</button>
+          <div class="form-status" id="employerStatus">Thank you. Your hiring requirement has been submitted.</div>
+        </form>
+      </div>
+
+      <!-- CANDIDATE FORM -->
+      <div class="form-panel" id="candidate">
+        <h3>Register as a candidate</h3>
+        <p>Share your details and job preferences. If your profile matches an available opportunity, our team may contact you.</p>
+
+        <form id="candidateForm">
+          <div class="form-row">
+            <div>
+              <label for="candidate-name">Full name *</label>
+              <input id="candidate-name" name="name" type="text" placeholder="Your full name" required>
+            </div>
+            <div>
+              <label for="candidate-email">Email *</label>
+              <input id="candidate-email" name="email" type="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="candidate-phone">Phone number *</label>
+              <input id="candidate-phone" name="phone" type="tel" placeholder="Phone number" required>
+            </div>
+            <div>
+              <label for="candidate-location">Current city</label>
+              <input id="candidate-location" name="location" type="text" placeholder="e.g. Kolkata">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="candidate-qualification">Highest qualification</label>
+              <input id="candidate-qualification" name="qualification" type="text" placeholder="e.g. Graduate / MBA">
+            </div>
+            <div>
+              <label for="candidate-experience">Total experience</label>
+              <select id="candidate-experience" name="experience">
+                <option>Fresher</option>
+                <option>0–1 years</option>
+                <option>1–3 years</option>
+                <option>3–5 years</option>
+                <option>5–10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="candidate-current-role">Current / last designation</label>
+              <input id="candidate-current-role" name="current_role" type="text" placeholder="e.g. Sales Executive">
+            </div>
+            <div>
+              <label for="candidate-current-company">Current / last company</label>
+              <input id="candidate-current-company" name="current_company" type="text" placeholder="Company name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="candidate-preferred-role">Preferred job role</label>
+              <input id="candidate-preferred-role" name="preferred_role" type="text" placeholder="e.g. BFSI Sales / Relationship Manager">
+            </div>
+            <div>
+              <label for="candidate-preferred-location">Preferred work location</label>
+              <input id="candidate-preferred-location" name="preferred_location" type="text" placeholder="e.g. Kolkata / Remote">
+            </div>
+          </div>
+
+          <div>
+            <label for="candidate-resume">Resume / LinkedIn profile link</label>
+            <input id="candidate-resume" name="resume_link" type="url" placeholder="Paste Google Drive, LinkedIn, or other profile link">
+          </div>
+
+          <div>
+            <label for="candidate-message">Additional information</label>
+            <textarea id="candidate-message" name="message" placeholder="Tell us about your skills, achievements, notice period, expected salary, or the type of role you are looking for."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit candidate profile</button>
+          <div class="form-status" id="candidateStatus">Thank you. Your profile has been submitted.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <div class="section-head">
+          <h2>Let’s connect</h2>
+          <p>For urgent requirements or questions, reach us directly using the details below.</p>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-row">
+            <span>📍</span>
+            <div><strong>Kolkata, West Bengal</strong><span>India</span></div>
+          </div>
+          <div class="contact-row">
+            <span>✉️</span>
+            <div><strong>Email</strong><span>Add your official email address here</span></div>
+          </div>
+          <div class="contact-row">
+            <span>📞</span>
+            <div><strong>Phone</strong><span>Add your contact number here</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-panel active">
+        <h3>General enquiry</h3>
+        <p>Send us a general message and we will get back to you.</p>
+
+        <form id="generalForm">
+          <div class="form-row">
+            <div>
+              <label for="general-name">Your name *</label>
+              <input id="general-name" name="name" type="text" placeholder="Full name" required>
+            </div>
+            <div>
+              <label for="general-email">Email *</label>
+              <input id="general-email" name="email" type="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="general-subject">Subject</label>
+            <input id="general-subject" name="subject" type="text" placeholder="What is your enquiry about?">
+          </div>
+
+          <div>
+            <label for="general-message">Message *</label>
+            <textarea id="general-message" name="message" placeholder="Write your message here." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <div class="form-status" id="generalStatus">Thank you. Your message has been submitted.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <strong style="color:white;">Ray HR Consultancy</strong>
+        <p style="font-size:.92rem;">Recruitment, HR consultancy, and candidate sourcing.</p>
+      </div>
+      <nav style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#forms">Apply / Hire</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="footer-note">© <span id="year"></span> Ray HR Consultancy. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+  menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+  navLinks.querySelectorAll("a").forEach(link =>
+    link.addEventListener("click", () => navLinks.classList.remove("open"))
+  );
+
+  // Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Form tabs
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const formPanels = document.querySelectorAll(".form-panel");
+
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      formPanels.forEach(panel => panel.classList.remove("active"));
+
+      button.classList.add("active");
+      document.getElementById(button.dataset.tab).classList.add("active");
+    });
+  });
+
+  // =========================================================
+  // GOOGLE FORM SETTINGS
+  // Replace YOUR_FORM_ID and entry IDs with your own values.
+  // =========================================================
+
+  const EMPLOYER_FORM_ACTION =
+    "https://docs.google.com/forms/d/e/YOUR_EMPLOYER_FORM_ID/formResponse";
+
+  const EMPLOYER_FIELDS = {
+    name: "entry.EMPLOYER_NAME_ID",
+    company: "entry.EMPLOYER_COMPANY_ID",
+    email: "entry.EMPLOYER_EMAIL_ID",
+    phone: "entry.EMPLOYER_PHONE_ID",
+    designation: "entry.EMPLOYER_DESIGNATION_ID",
+    industry: "entry.EMPLOYER_INDUSTRY_ID",
+    role: "entry.EMPLOYER_ROLE_ID",
+    location: "entry.EMPLOYER_LOCATION_ID",
+    experience: "entry.EMPLOYER_EXPERIENCE_ID",
+    openings: "entry.EMPLOYER_OPENINGS_ID",
+    message: "entry.EMPLOYER_MESSAGE_ID"
+  };
+
+  const CANDIDATE_FORM_ACTION =
+    "https://docs.google.com/forms/d/e/YOUR_CANDIDATE_FORM_ID/formResponse";
+
+  const CANDIDATE_FIELDS = {
+    name: "entry.CANDIDATE_NAME_ID",
+    email: "entry.CANDIDATE_EMAIL_ID",
+    phone: "entry.CANDIDATE_PHONE_ID",
+    location: "entry.CANDIDATE_LOCATION_ID",
+    qualification: "entry.CANDIDATE_QUALIFICATION_ID",
+    experience: "entry.CANDIDATE_EXPERIENCE_ID",
+    current_role: "entry.CANDIDATE_CURRENT_ROLE_ID",
+    current_company: "entry.CANDIDATE_CURRENT_COMPANY_ID",
+    preferred_role: "entry.CANDIDATE_PREFERRED_ROLE_ID",
+    preferred_location: "entry.CANDIDATE_PREFERRED_LOCATION_ID",
+    resume_link: "entry.CANDIDATE_RESUME_ID",
+    message: "entry.CANDIDATE_MESSAGE_ID"
+  };
+
+  const GENERAL_FORM_ACTION =
+    "https://docs.google.com/forms/d/e/YOUR_GENERAL_FORM_ID/formResponse";
+
+  const GENERAL_FIELDS = {
+    name: "entry.GENERAL_NAME_ID",
+    email: "entry.GENERAL_EMAIL_ID",
+    subject: "entry.GENERAL_SUBJECT_ID",
+    message: "entry.GENERAL_MESSAGE_ID"
+  };
+
+  // Generic Google Forms submit handler
+  function connectGoogleForm(formId, action, fieldMap, statusId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData();
+
+      for (const [websiteField, googleEntryId] of Object.entries(fieldMap)) {
+        const value = this.elements[websiteField] ? this.elements[websiteField].value : "";
+        formData.append(googleEntryId, value);
+      }
+
+      try {
+        await fetch(action, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        });
+
+        form.reset();
+        document.getElementById(statusId).style.display = "block";
+
+        setTimeout(() => {
+          document.getElementById(statusId).style.display = "none";
+        }, 8000);
+      } catch (error) {
+        alert("Sorry, something went wrong. Please try again.");
+      }
+    });
+  }
+
+  connectGoogleForm("employerForm", EMPLOYER_FORM_ACTION, EMPLOYER_FIELDS, "employerStatus");
+  connectGoogleForm("candidateForm", CANDIDATE_FORM_ACTION, CANDIDATE_FIELDS, "candidateStatus");
+  connectGoogleForm("generalForm", GENERAL_FORM_ACTION, GENERAL_FIELDS, "generalStatus");
+</script>
+
 </body>
 </html>
